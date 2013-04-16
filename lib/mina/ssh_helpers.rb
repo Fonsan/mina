@@ -84,7 +84,7 @@ module Mina
 
       def invoke(script, this)
         term_mode = :"#{this.settings.term_mode}"
-        code = "#{this.ssh_command} -- #{script}"
+        code = "#{this.ssh_command} -- bash -i #{script}"
 
         # Certain environments can't do :pretty mode.
         term_mode = :exec  if term_mode == :pretty && !pretty_supported?
